@@ -50,6 +50,12 @@ builder.Services.AddSwaggerGen(c =>
 // ✅ Servicio Graph
 builder.Services.AddScoped<GraphService>();
 
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(5130); // escucha en 0.0.0.0
+});
+
+
 var app = builder.Build();
 
 // ✅ Swagger visible en todo entorno
